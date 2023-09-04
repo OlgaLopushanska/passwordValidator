@@ -34,3 +34,33 @@ public class IPasswordValidator {
         }
         return val;
     }
+
+
+    //solution without regex
+    public boolean isValid(String password) {
+        boolean val = false;
+        boolean dig = false, spec = false, upper = false;
+        String special = "$&+,:;=?@#|/ '<>.^*(){}~_`%!-";
+
+        if (password != null) {
+            char[] array = password.toCharArray();
+            if (password.length() >= 8) {
+                for (int counter = 0; counter < array.length; counter++) {
+                    if (Character.isDigit(array[counter])) {
+                        dig = true;
+                    }
+                    if (Character.isLetter(array[counter]) && Character.isUpperCase(array[counter])) {
+                        upper = true;
+                    }
+                    if (special.indexOf(array[counter]) != -1) {
+                        spec = true;
+                    }
+                }
+            }
+        }
+        if ((dig && upper) && spec) {
+            val = true;
+        }
+        return val;
+    }
+}

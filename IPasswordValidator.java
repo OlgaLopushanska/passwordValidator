@@ -25,7 +25,7 @@ public class IPasswordValidator {
         Pattern patternForSpecialCharacter = Pattern.compile("[$&+,:;=\\\\?@#|/'<>.^*(){}~_ `%!-]");
 
         if (password != null) {
-            if (password.trim().length() >= 8) {
+            if (password.length() >= 8) {
                 if ((patternForUpperCaseLetter.matcher(password).find() && patternForDigit.matcher(password).find())
                         && patternForSpecialCharacter.matcher(password).find()) {
                     val = true;

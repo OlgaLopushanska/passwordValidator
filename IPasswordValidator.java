@@ -17,12 +17,13 @@ import java.util.regex.Pattern;
  * isValid("Password1") should return false
  */
 public class IPasswordValidator {
+
     public boolean isValid(String password) {
         boolean val = false;
         Pattern patternForUpperCaseLetter = Pattern.compile("[A-Z]");
         Pattern patternForDigit = Pattern.compile("[0-9]");
-        Pattern patternForSpecialCharacter = Pattern.compile("[$&+,:;=\\\\?@#|/'<>.^*(){}~_`%!-]");
-        
+        Pattern patternForSpecialCharacter = Pattern.compile("[$&+,:;=\\\\?@#|/'<>.^*(){}~_ `%!-]");
+
         if (password != null) {
             if (password.trim().length() >= 8) {
                 if ((patternForUpperCaseLetter.matcher(password).find() && patternForDigit.matcher(password).find())
@@ -33,4 +34,3 @@ public class IPasswordValidator {
         }
         return val;
     }
-}
